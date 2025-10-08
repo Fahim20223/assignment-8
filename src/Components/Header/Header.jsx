@@ -9,7 +9,7 @@ const Header = () => {
       <Link to="/">
         <li className="m-2">Home</li>
       </Link>
-      <li className="m-2">About</li>
+      <li className="m-2">Apps</li>
       <li className="m-2">Installation</li>
     </>
   );
@@ -41,21 +41,26 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <div className="flex gap-1">
-          <img className="w-7" src={logoImg} alt="" />
-          <a
-            className="text-xl text-purple-600
+        <Link to="/">
+          <div className="flex gap-1">
+            <img className="w-7" src={logoImg} alt="" />
+            <a
+              className="text-xl text-purple-600
 "
-          >
-            HERO.IO
-          </a>
-        </div>
+            >
+              HERO.IO
+            </a>
+          </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-gradient-to-r from-[#632ee3] to-[#9f62f2]">
+        <a
+          className="btn bg-gradient-to-r from-[#632ee3] to-[#9f62f2]"
+          href="https://github.com/Fahim20223"
+        >
           <span className="text-white ">
             {" "}
             <FaGithub />

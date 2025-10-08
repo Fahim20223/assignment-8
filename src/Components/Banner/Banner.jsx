@@ -18,13 +18,17 @@ const Banner = () => {
         </p>
       </div>
       <div className="text-center my-6">
-        <button className="btn mr-5">
-          <img className="w-5" src={playStore} alt="" /> Google Play
-        </button>
-        <button className="btn ">
-          {" "}
-          <img className="w-5" src={appStore} alt="" /> App Store
-        </button>
+        <a href="https://play.google.com/store/games?hl=en">
+          <button className="btn mr-5">
+            <img className="w-5" src={playStore} alt="" /> Google Play
+          </button>
+        </a>
+        <a href="https://www.apple.com/app-store/">
+          <button className="btn ">
+            {" "}
+            <img className="w-5" src={appStore} alt="" /> App Store
+          </button>
+        </a>
       </div>
     </div>
   );
