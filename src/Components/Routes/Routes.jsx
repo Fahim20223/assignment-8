@@ -4,12 +4,14 @@ import Root from "../Root/Root";
 import Home from "../Home/Home";
 import Cards from "../Cards/Cards";
 import Apps from "../Apps/Apps";
+import Error from "../Error/Error";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    errorElement: <Error></Error>,
     children: [
       {
         index: true,
