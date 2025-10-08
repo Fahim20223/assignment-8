@@ -2,6 +2,8 @@ import React from "react";
 import { createBrowserRouter } from "react-router";
 import Root from "../Root/Root";
 import Home from "../Home/Home";
+import Cards from "../Cards/Cards";
+import Apps from "../Apps/Apps";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const router = createBrowserRouter([
@@ -12,7 +14,12 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: "/",
+        loader: () => fetch("/data.json"),
         Component: Home,
+      },
+      {
+        path: "apps",
+        Component: Apps,
       },
     ],
   },

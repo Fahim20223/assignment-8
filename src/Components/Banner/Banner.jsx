@@ -5,8 +5,8 @@ import appStore from "../../assets/fi_5977575.png";
 const Banner = () => {
   return (
     <div>
-      <div className="">
-        <h1 className="text-center text-4xl font-bold my-6">
+      <div>
+        <h1 className="text-center text-4xl font-bold pt-6">
           We Build <br className="hidden md:block" />
           <span className="text-purple-500">Productive</span> Apps
         </h1>

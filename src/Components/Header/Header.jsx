@@ -44,12 +44,7 @@ const Header = () => {
         <Link to="/">
           <div className="flex gap-1">
             <img className="w-7" src={logoImg} alt="" />
-            <a
-              className="text-xl text-purple-600
-"
-            >
-              HERO.IO
-            </a>
+            <span className="text-xl text-purple-600">HERO.IO</span>
           </div>
         </Link>
       </div>
