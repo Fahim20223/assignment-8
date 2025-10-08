@@ -6,7 +6,7 @@ import { Link, useLoaderData } from "react-router";
 
 const Home = () => {
   const cards = useLoaderData();
-  console.log(cards);
+  // console.log(cards);
   return (
     <div className="bg-[#F5F5F5] pb-7">
       <Banner></Banner>
