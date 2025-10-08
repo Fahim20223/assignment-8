@@ -1,17 +1,20 @@
 import React from "react";
 import logoImg from "../../assets/logo.png";
 import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Header = () => {
   const links = (
     <>
-      <li className="m-2">Home</li>
+      <Link to="/">
+        <li className="m-2">Home</li>
+      </Link>
       <li className="m-2">About</li>
       <li className="m-2">Installation</li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 ">
+    <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,7 +60,7 @@ const Header = () => {
             {" "}
             <FaGithub />
           </span>
-          Contribute
+          <span className="text-white">Contribute</span>
         </a>
       </div>
     </div>
