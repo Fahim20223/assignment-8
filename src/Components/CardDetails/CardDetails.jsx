@@ -5,6 +5,7 @@ import ratingImg from "../../assets/icon-ratings.png";
 import reviewImg from "../../assets/icon-review.png";
 import { toast } from "react-toastify";
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
+import { addTOStoredDB } from "../Utilities/addTODB";
 
 const CardDetails = () => {
   const { id } = useParams();
@@ -22,14 +23,17 @@ const CardDetails = () => {
     reviews,
     ratings,
   } = singleApp;
-  const handleBtn = () => {
+
+  const [showBtn, setShowBtn] = useState(false);
+  const handleBtn = (id) => {
     if (showBtn) {
       return;
     }
     toast.success(`Yahoo⚡!! ${title} Installed Successfully`);
     setShowBtn(!showBtn);
+    addTOStoredDB(id);
   };
-  const [showBtn, setShowBtn] = useState(false);
+
   return (
     <div>
       <div className="flex flex-col md:flex-row gap-15 p-10 ">
@@ -67,7 +71,7 @@ const CardDetails = () => {
             </div>
           </div>
           <button
-            onClick={handleBtn}
+            onClick={() => handleBtn(id)}
             className="mt-7 btn block mx-auto bg-[#00d390] text-white"
           >
             {showBtn ? " Installed" : "Install Now (291 MB)"}

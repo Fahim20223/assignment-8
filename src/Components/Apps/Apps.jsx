@@ -8,7 +8,7 @@ const Apps = () => {
 
   const [searching, setSearching] = useState("");
   const filteredItems = apps.filter((app) =>
-    app.title.toLowerCase().includes(searching.toLowerCase())
+    app.title.toLowerCase().includes(searching.trim().toLowerCase())
   );
   const handleSearching = (e) => {
     setSearching(e.target.value);

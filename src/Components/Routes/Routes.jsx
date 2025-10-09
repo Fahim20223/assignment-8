@@ -7,6 +7,7 @@ import Apps from "../Apps/Apps";
 import Error from "../Error/Error";
 import CardDetails from "../CardDetails/CardDetails";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import InstalledApps from "../InstalledApps/InstalledApps";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const router = createBrowserRouter([
@@ -32,6 +33,11 @@ export const router = createBrowserRouter([
         loader: () => fetch("/data2.json"),
         Component: CardDetails,
         errorElement: <ErrorMessage></ErrorMessage>,
+      },
+      {
+        path: "installedApps",
+        loader: () => fetch("/data2.json"),
+        Component: InstalledApps,
       },
     ],
   },
