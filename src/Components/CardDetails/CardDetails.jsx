@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import downloadImg from "../../assets/icon-downloads.png";
 import ratingImg from "../../assets/icon-ratings.png";
 import reviewImg from "../../assets/icon-review.png";
 import { toast } from "react-toastify";
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
-import { addTOStoredDB } from "../Utilities/addTODB";
+import { addTOStoredDB, getStoredApps } from "../Utilities/addTODB";
 
 const CardDetails = () => {
   const { id } = useParams();
@@ -25,6 +25,14 @@ const CardDetails = () => {
   } = singleApp;
 
   const [showBtn, setShowBtn] = useState(false);
+
+  useEffect(() => {
+    const installedApps = getStoredApps();
+    if (installedApps.includes(id)) {
+      setShowBtn(true);
+    }
+  }, [id]);
+
   const handleBtn = (id) => {
     if (showBtn) {
       return;
@@ -32,6 +40,7 @@ const CardDetails = () => {
     toast.success(`Yahoo⚡!! ${title} Installed Successfully`);
     setShowBtn(!showBtn);
     addTOStoredDB(id);
+    setShowBtn(true);
   };
 
   return (
