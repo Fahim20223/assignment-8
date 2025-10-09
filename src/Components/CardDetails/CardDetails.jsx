@@ -23,7 +23,9 @@ const CardDetails = () => {
     ratings,
   } = singleApp;
   const handleBtn = () => {
-    if (showBtn) return;
+    if (showBtn) {
+      return;
+    }
     toast.success(`Yahoo⚡!! ${title} Installed Successfully`);
     setShowBtn(!showBtn);
   };
@@ -85,13 +87,15 @@ const CardDetails = () => {
             <XAxis dataKey="count" type="number" />
             <YAxis dataKey="name" type="category" axisLine={false} />
             <Tooltip />
-            <Bar dataKey="count" fill="#ff8811" barSize={30}></Bar>
+            <Bar dataKey="count" fill="#ff8811" barSize={27}></Bar>
           </BarChart>
         </div>
       </div>
       <div>
         <h2 className="text-xl font-semibold pl-15">Description</h2>
-        <p className="pl-15">{description}</p>
+        <p className="pl-15 text-gray-500 md:w-[75%] lg:w-[50%] pb-7">
+          {description}
+        </p>
       </div>
     </div>
   );

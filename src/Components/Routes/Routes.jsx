@@ -6,6 +6,7 @@ import Cards from "../Cards/Cards";
 import Apps from "../Apps/Apps";
 import Error from "../Error/Error";
 import CardDetails from "../CardDetails/CardDetails";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const router = createBrowserRouter([
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
         path: "cardsDetails/:id",
         loader: () => fetch("/data2.json"),
         Component: CardDetails,
+        errorElement: <ErrorMessage></ErrorMessage>,
       },
     ],
   },
