@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import downloadImg from "../../assets/icon-downloads.png";
 import ratingImg from "../../assets/icon-ratings.png";
 import reviewImg from "../../assets/icon-review.png";
+import { toast } from "react-toastify";
+import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
 
 const CardDetails = () => {
   const { id } = useParams();
@@ -18,7 +20,14 @@ const CardDetails = () => {
     downloads,
     ratingAvg,
     reviews,
+    ratings,
   } = singleApp;
+  const handleBtn = () => {
+    if (showBtn) return;
+    toast.success(`Yahoo⚡!! ${title} Installed Successfully`);
+    setShowBtn(!showBtn);
+  };
+  const [showBtn, setShowBtn] = useState(false);
   return (
     <div>
       <div className="flex flex-col md:flex-row gap-15 p-10 ">
@@ -55,9 +64,35 @@ const CardDetails = () => {
               <h2 className="text-xl font-bold">{reviews}</h2>
             </div>
           </div>
+          <button
+            onClick={handleBtn}
+            className="mt-7 btn block mx-auto bg-[#00d390] text-white"
+          >
+            {showBtn ? " Installed" : "Install Now (291 MB)"}
+          </button>
         </div>
       </div>
       <p className="divider w-[75%] px-7"></p>
+      <div className="p-5">
+        <h1 className="text-2xl font-bold p-10">Ratings</h1>
+        <div>
+          <BarChart
+            width={1000}
+            height={450}
+            data={[...ratings].reverse()}
+            layout="vertical"
+          >
+            <XAxis dataKey="count" type="number" />
+            <YAxis dataKey="name" type="category" axisLine={false} />
+            <Tooltip />
+            <Bar dataKey="count" fill="#ff8811" barSize={30}></Bar>
+          </BarChart>
+        </div>
+      </div>
+      <div>
+        <h2 className="text-xl font-semibold pl-15">Description</h2>
+        <p className="pl-15">{description}</p>
+      </div>
     </div>
   );
 };

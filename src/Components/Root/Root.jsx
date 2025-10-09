@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import { Outlet } from "react-router";
 import Footer from "../Footer/Footer";
 import "./Root.css";
+import { ToastContainer } from "react-toastify";
 
 const Root = () => {
   return (
@@ -12,6 +13,7 @@ const Root = () => {
       </div>{" "}
       <Outlet></Outlet>
       <Footer></Footer>
+      <ToastContainer position="top-center" />
     </div>
   );
 };

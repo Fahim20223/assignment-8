@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import Card from "../Card/Card";
+import Spinner from "../Spinner/Spinner";
 
 const Cards = ({ cards }) => {
   return (
@@ -9,7 +10,7 @@ const Cards = ({ cards }) => {
         <p className="text-gray-500 text-center mt-2 mb-7">
           Explore All Trending Apps on the Market developed by us
         </p>
-        <Suspense>
+        <Suspense fallback={<Spinner></Spinner>}>
           <div className="grid gird-cols-1 md:grid-cols-3 lg:grid-cols-4 pb-13 mx-auto max-w-7xl gap-4">
             {cards.map((card) => (
               <Card key={card.id} card={card}></Card>
