@@ -27,7 +27,7 @@ const Card2 = ({ app }) => {
                     src={downloadsIcon}
                     alt="download icon"
                   />{" "}
-                  {downloads}
+                  {downloads}B
                 </button>
                 <button className="bg-orange-100 text-orange-400 btn border-0">
                   <img className="w-4" src={ratings} alt="rating star" />{" "}

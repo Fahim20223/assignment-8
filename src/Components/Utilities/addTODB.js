@@ -21,4 +21,17 @@ const addTOStoredDB = (id) => {
     console.log(storedAppsData);
   }
 };
+
+// const removeToStoreDB = (id) => {
+//   const storedAppsData = getStoredApps();
+//   if (!storedAppsData.includes(id)) {
+//     alert("Bhai ei app ta nai ekhane");
+//   } else {
+//     const filtered = storedAppsData.filter((appsId) => appsId !== id);
+//     const data = JSON.stringify(filtered);
+//     localStorage.setItem("appList", data);
+//     console.log(filtered);
+//   }
+// };
+
 export { addTOStoredDB, getStoredApps };

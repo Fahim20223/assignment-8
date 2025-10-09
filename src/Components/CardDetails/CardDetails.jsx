@@ -57,7 +57,7 @@ const CardDetails = () => {
             <div>
               <img src={downloadImg} alt="" />
               <p className="text-gray-500">Downloads</p>
-              <h1 className="text-xl font-bold">{downloads}</h1>
+              <h1 className="text-xl font-bold">{downloads}B</h1>
             </div>
             <div>
               <img src={ratingImg} alt="" />

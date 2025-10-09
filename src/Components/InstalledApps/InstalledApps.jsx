@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import { getStoredApps } from "../Utilities/addTODB";
 import downloadImg from "../../assets/icon-downloads.png";
 import ratingImg from "../../assets/icon-ratings.png";
+import { toast } from "react-toastify";
 
 const InstalledApps = () => {
   const [appList, setAppList] = useState([]);
@@ -19,28 +20,40 @@ const InstalledApps = () => {
     );
     setAppList(myAppList);
     // console.log(myAppList);
-  }, []);
+  }, [data]);
   const [sortOrder, setSortOrder] = useState("");
   const handleSort = (type) => {
     setSortOrder(type);
-    if (type === "ratings asc") {
+    if (type === "downloads asc") {
       const sortedByPage = [...appList].sort(
-        (a, b) => a.ratingAvg - b.ratingAvg
+        (a, b) => a.downloads - b.downloads
       );
       setAppList(sortedByPage);
     }
-    if (type === "ratings dsc") {
+    if (type === "downloads dsc") {
       const sortedByRatings = [...appList].sort(
-        (a, b) => b.ratingAvg - a.ratingAvg
+        (a, b) => b.downloads - a.downloads
       );
       setAppList(sortedByRatings);
     }
   };
-  //   const sortedItem = () => {
-  //     if (sortOrder === "price-asc") {
-  //       return [...appList].sort(a, (b) => a.price.b.price);
-  //     }
-  //   };
+  const handleUninstallBtn = (id) => {
+    const existingList = JSON.parse(localStorage.getItem("appList"));
+
+    const updatedStoredIds = existingList.filter(
+      (storedId) => parseInt(storedId) !== id
+    );
+
+    const updatedAppList = appList.filter((app) => app.id !== id);
+
+    setAppList(updatedAppList);
+    localStorage.setItem("appList", JSON.stringify(updatedStoredIds));
+
+    toast.success(`App uninstalled!`);
+
+    // toast.success(appList.title);
+  };
+
   return (
     <div className="pb-8 bg-[#F5F5F5]">
       <div className="pt-7 pb-11">
@@ -60,10 +73,10 @@ const InstalledApps = () => {
             onChange={(e) => handleSort(e.target.value)}
           >
             <option value="" disabled>
-              Sort by ratings
+              Sort by downloads
             </option>
-            <option value="ratings asc">Low to high</option>
-            <option value="ratings dsc">High to low</option>
+            <option value="downloads asc">Low to high</option>
+            <option value="downloads dsc">High to low</option>
           </select>
         </div>
         <div className="space-y-3 w-full">
@@ -84,7 +97,7 @@ const InstalledApps = () => {
                     <div className="flex items-center gap-2 mt-1">
                       <span className="text-green-400 flex items-center gap-1 mr-2">
                         <img className="w-5" src={downloadImg} alt="" />
-                        {app.downloads}
+                        {app.downloads}B
                       </span>
                       <span className="text-orange-400 flex items-center gap-1">
                         <img className="w-4" src={ratingImg} alt="" />
@@ -93,7 +106,10 @@ const InstalledApps = () => {
                     </div>
                   </div>
                 </div>
-                <button className="text-white font-semibold bg-[#00d390] px-4 py-2 rounded-lg btn">
+                <button
+                  onClick={() => handleUninstallBtn(app.id)}
+                  className="text-white font-semibold bg-[#00d390] px-4 py-2 rounded-lg btn"
+                >
                   Uninstall
                 </button>
               </div>

@@ -1,20 +1,20 @@
 import React from "react";
 import logoImg from "../../assets/logo.png";
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Header = () => {
   const links = (
     <>
-      <Link to="/">
+      <NavLink to="/">
         <li className="m-2">Home</li>
-      </Link>
-      <Link to="/apps">
+      </NavLink>
+      <NavLink to="/apps">
         <li className="m-2">Apps</li>
-      </Link>
-      <Link to="/installedApps">
+      </NavLink>
+      <NavLink to="/installedApps">
         <li className="m-2">Installation</li>
-      </Link>
+      </NavLink>
     </>
   );
   return (
