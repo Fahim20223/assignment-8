@@ -31,7 +31,7 @@ const CardDetails = () => {
     if (installedApps.includes(id)) {
       setShowBtn(true);
     }
-  }, [id]);
+  }, []);
 
   const handleBtn = (id) => {
     if (showBtn) {

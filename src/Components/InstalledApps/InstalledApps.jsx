@@ -40,14 +40,14 @@ const InstalledApps = () => {
   const handleUninstallBtn = (id) => {
     const existingList = JSON.parse(localStorage.getItem("appList"));
 
-    const updatedStoredIds = existingList.filter(
-      (storedId) => parseInt(storedId) !== id
+    const updatedStored = existingList.filter(
+      (stored) => parseInt(stored) !== id
     );
 
     const updatedAppList = appList.filter((app) => app.id !== id);
 
     setAppList(updatedAppList);
-    localStorage.setItem("appList", JSON.stringify(updatedStoredIds));
+    localStorage.setItem("appList", JSON.stringify(updatedStored));
 
     toast.success(`App uninstalled!`);
 
