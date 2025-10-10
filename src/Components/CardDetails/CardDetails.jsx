@@ -52,7 +52,7 @@ const CardDetails = () => {
 
   return (
     <div className="bg-[#F5F5F5]">
-      <div className="flex flex-col md:flex-row gap-15 p-10 ">
+      <div className="flex flex-col md:flex-row gap-15 md:p-10">
         <div className="">
           <img
             className="md:w-[400px] rounded-xl md:h-[400px] object-cover"
@@ -97,12 +97,12 @@ const CardDetails = () => {
       <p className="divider w-[75%] px-7"></p>
       <div className="p-5">
         <h1 className="text-2xl font-bold p-10">Ratings</h1>
-        <div style={{ width: "100%", height: 400 }}>
+        <div className="w-full md:w-1/2 h-64 md:h-96  ">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={[...ratings].reverse()}
               layout="vertical"
-              margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
+              margin={{ top: 20, right: 40, left: 40, bottom: 20 }}
             >
               <XAxis dataKey="count" type="number" />
               <YAxis dataKey="name" type="category" axisLine={false} />
