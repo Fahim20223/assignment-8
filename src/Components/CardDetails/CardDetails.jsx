@@ -44,7 +44,7 @@ const CardDetails = () => {
   };
 
   return (
-    <div>
+    <div className="bg-[#F5F5F5]">
       <div className="flex flex-col md:flex-row gap-15 p-10 ">
         <div className="">
           <img
