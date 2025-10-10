@@ -4,7 +4,14 @@ import downloadImg from "../../assets/icon-downloads.png";
 import ratingImg from "../../assets/icon-ratings.png";
 import reviewImg from "../../assets/icon-review.png";
 import { toast } from "react-toastify";
-import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { addTOStoredDB, getStoredApps } from "../Utilities/addTODB";
 
 const CardDetails = () => {
@@ -90,18 +97,19 @@ const CardDetails = () => {
       <p className="divider w-[75%] px-7"></p>
       <div className="p-5">
         <h1 className="text-2xl font-bold p-10">Ratings</h1>
-        <div>
-          <BarChart
-            width={1000}
-            height={450}
-            data={[...ratings].reverse()}
-            layout="vertical"
-          >
-            <XAxis dataKey="count" type="number" />
-            <YAxis dataKey="name" type="category" axisLine={false} />
-            <Tooltip />
-            <Bar dataKey="count" fill="#ff8811" barSize={27}></Bar>
-          </BarChart>
+        <div style={{ width: "100%", height: 400 }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={[...ratings].reverse()}
+              layout="vertical"
+              margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
+            >
+              <XAxis dataKey="count" type="number" />
+              <YAxis dataKey="name" type="category" axisLine={false} />
+              <Tooltip />
+              <Bar dataKey="count" fill="#ff8811" barSize={27} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
       <div>
