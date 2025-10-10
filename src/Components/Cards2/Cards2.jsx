@@ -17,15 +17,6 @@ const Cards2 = ({ apps }) => {
     return () => clearTimeout(timer);
   }, [apps]);
 
-  // ✅ RETURN spinner when loading
-  // if (loading) {
-  //   return (
-  //     <div className="flex justify-center items-center min-h-[50vh]">
-  //       <Spinner />
-  //     </div>
-  //   );
-  // }
-
   return (
     <div>
       <Suspense>

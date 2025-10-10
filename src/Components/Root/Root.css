@@ -1,4 +1,5 @@
 a.active {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: purple;
+  border-bottom: 2px solid purple;
 }
