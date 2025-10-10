@@ -68,7 +68,7 @@ const InstalledApps = () => {
       {loading ? (
         <Spinner></Spinner>
       ) : (
-        <div className="pb-8 bg-[#F5F5F5]">
+        <div className="pb-8 bg-[#F5F5F5] min-h-[60vh]">
           <div className="pt-7 pb-11">
             <h1 className="text-center text-2xl font-bold">
               Your Installed Apps
