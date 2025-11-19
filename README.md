@@ -48,4 +48,4 @@ It includes app details, reviews visualization, and local storage-based installa
 
 1. Clone the repository:  
 ```bash
-git clone <YOUR_REPO_LINK>
+git clone https://github.com/Fahim20223/assignment-8.git
