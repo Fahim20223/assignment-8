@@ -2,8 +2,8 @@
 
 
 
-**Live Demo:** [Your Live Site Link](#)  
-**GitHub Repository:** [Hero IO Repo](#)
+**Live Demo:** https://most-popular-apps.netlify.app/ 
+**GitHub Repository:** https://github.com/Fahim20223/assignment-8
 
 Hero IO is a responsive app store web application where users can browse, search, and install apps.  
 It includes app details, reviews visualization, and local storage-based installation management.
